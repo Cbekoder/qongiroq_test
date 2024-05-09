@@ -1,0 +1,92 @@
+{
+  "init": {
+    "type": "audio",
+    "data": "Assalomu alaykum, sizga qanday yordam bera olaman!"
+  },
+  "default": {
+    "bot": {
+      "type": "audio",
+      "data": "Sizni tushunish qiyin bolyapti xozir sizi boshqa menejer bilan ulayman",
+      "hangup": true
+    }
+  },
+  "child": [
+    {
+      "client": "qo llanma, qollanma kerak",
+      "bot": {
+        "type": "audio",
+        "data": "Juda yaxshi, qo’llanmamizni kim uchun harid qilmoqchisz?"
+      },
+      "default": {
+        "bot": {
+          "type": "audio",
+          "data": "Bizning qo'lanmamiz asosan 12 yoshgacha bolalar uchun mojalangan, farzandlariz bormi?"
+        },
+        "default": {
+          "bot": {
+            "type": "redirect",
+            "data": "child/0/child/0"
+          }
+        },
+        "child": [
+          {
+            "client": "Xa bor",
+            "bot": {
+              "type": "redirect",
+              "data": "child/0/child/0"
+            }
+          },
+          {
+            "client": "Yoq",
+            "bot": {
+              "type": "audio",
+              "data": "Unda qollanmamiz sizga mos kelmasakan",
+              "hangup": true
+            }
+          }
+        ]
+      },
+      "child": [
+        {
+          "client": "Farzandim, bolalarim uchun",
+          "bot": {
+            "type": "audio",
+            "data": "Keling bunday qilamiz men sizga bir nechta savollar beraman 5 minut vaqtizi olaman, qo’llanmamiz sizga qay darajada mos kelishini aniqlab olishimiz uchun. Boladimi shunday qilsak?"
+          },
+          "default": {
+            "bot": {
+              "type": "redirect",
+              "data": "child/0/child/0/child/1"
+            }
+          },
+          "child": [
+            {
+              "client": "Xa mayli, roziman",
+              "bot": {
+                "type": "audio",
+                "data": "Farzandingiz aynan qaysi tildagi kursimizga qiziqyapti?"
+              },
+              "child": [],
+              "default": {
+                "save": true,
+                "bot": {
+                  "type": "audio",
+                  "data": "Sizni tushundm, biz farzandingizga erkin tarzda  chet tilini  tezkor va samarali o`rganish imkoniyatini beramiz. Sizni menejer bilan boglayman u sizga xammasini batafsil tushuntirib beradi",
+                  "hangup": true
+                }
+              }
+            },
+            {
+              "client": "Yoq",
+              "bot": {
+                "type": "audio",
+                "data": "Tushunarli unda siz bilan keyinroq menedjerimiz aloqaga chiqadi",
+                "hangup": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

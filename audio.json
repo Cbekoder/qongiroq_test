@@ -1,0 +1,154 @@
+{
+  "init": {
+    "type": "audio",
+    "data": "new_audios/new_welcome.wav"
+  },
+  "default": {
+    "bot": {
+      "type": "audio",
+      "data": "new_audios/q_balki_sinab_korarsiz.wav"
+    },
+    "default": {
+      "bot": {
+        "type": "audio",
+        "data": "new_audios/keyinroq.wav",
+        "hangup": true
+      }
+    },
+    "child": [
+      {
+        "client": [
+          "yoq",
+          "vaqtim yoq",
+          "keyinroq"
+        ],
+        "bot": {
+          "type": "audio",
+          "data": "new_audios/keyinroq.wav",
+          "hangup": true
+        },
+        "default": {},
+        "child": []
+      },
+      {
+        "client": [
+          "xop",
+          "mayli",
+          "boladi",
+          "gapiring"
+        ],
+        "bot": {
+          "type": "redirect",
+          "data": "child/0"
+        },
+        "default": {},
+        "child": []
+      }
+    ]
+  },
+  "child": [
+    {
+      "client": [
+        "xa",
+        "boladi",
+        "eshitaman",
+        "mayli"
+      ],
+      "bot": {
+        "type": "audio",
+        "data": "new_audios/q_isingiz.wav"
+      },
+      "default": {
+        "bot": {
+          "type": "audio",
+          "data": "new_audios/q_yoshingiz.wav"
+        },
+        "default": {
+          "bot": {
+            "type": "audio",
+            "data": "new_audios/q_farzandlariz.wav"
+          },
+          "default": {
+            "bot": {
+              "type": "audio",
+              "data": "new_audios/q_tilorganishadimi.wav"
+            },
+            "default": {
+              "bot": {
+                "type": "audio",
+                "data": "new_audios/q_telefonga_ruju.wav"
+              },
+              "default": {
+                "bot": {
+                  "type": "audio",
+                  "data": "new_audios/final.wav",
+                  "hangup": true
+                },
+                "default": {},
+                "child": []
+              },
+              "child": []
+            },
+            "child": []
+          },
+          "child": []
+        },
+        "child": []
+      },
+      "child": []
+    },
+    {
+      "client": [
+        "yoq",
+        "vaqtim yoq",
+        "keyinroq"
+      ],
+      "bot": {
+        "type": "audio",
+        "data": "new_audios/q_balki_sinab_korarsiz.wav"
+      },
+      "default": {
+        "bot": {
+          "type": "redirect",
+          "data": "child/0"
+        }
+      },
+      "child": [
+        {
+          "client": [
+            "yoq",
+            "vaqtim yoq",
+            "keyinroq"
+          ],
+          "bot": {
+            "type": "audio",
+            "data": "new_audios/keyinroq.wav",
+            "hangup": true
+          },
+          "default": {
+            "bot": {
+              "type": "audio",
+              "data": "new_audios/keyinroq.wav",
+              "hangup": true
+            }
+          },
+          "child": []
+        },
+        {
+          "client": [
+            "xop",
+            "eshitaman",
+            "mayli",
+            "gapiring"
+          ],
+          "bot": {
+            "type": "redirect",
+            "data": "child/0"
+          },
+          "default": {},
+          "child": []
+        }
+      ]
+    }
+  ]
+}
